@@ -11,4 +11,13 @@
     <string name="btn_checkID">중복확인</string>
     <string name="available_id">사용 가능한 아이디입니다.</string>
     <string name="nonavailable_id">중복된 아이디입니다.</string>
+    <string name="empty_in_et">입력되지 않은 정보가 있습니다.</string>
+    <string name="pw_not_same">비밀번호가 일치하지 않습니다.</string>
+    <string name="id_not_available">ID 중복확인을 해주세요.</string>
+    <string name="email_not_correct">이메일 형식이 올바르지 않습니다.</string>
+    <string name="authent_correct">인증 완료.</string>
+    <string name="authent_not_correct">인증번호가 올바르지 않습니다.</string>
+    <string name="pw_not_strong">비밀번호가 강력하지 않습니다.</string>
+    <string name="btn_newAuthent">새로고침</string>
+    <string name="btn_checkAuthent">확인하기</string>
 </resources>
