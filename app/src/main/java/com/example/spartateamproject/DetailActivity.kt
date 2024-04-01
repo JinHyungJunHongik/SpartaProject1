@@ -8,6 +8,4 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
     }
-
-    //text
 }
