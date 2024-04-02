@@ -6,11 +6,100 @@
     android:layout_height="match_parent"
     tools:context=".DetailActivity">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="178dp"
-        tools:layout_editor_absoluteY="65dp" />
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/detail_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:id="@+id/tx_detail_id"
+                android:layout_width="221dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="아이디"
+                android:textSize="26dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/btn_detail_back"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/img_arrow"
+                android:rotationY="180"
+                app:layout_constraintBottom_toBottomOf="@+id/tx_detail_id"
+                app:layout_constraintEnd_toStartOf="@+id/tx_detail_id"
+                app:layout_constraintTop_toTopOf="@+id/tx_detail_id" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/img_detail_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="@+id/tx_detail_id"
+                app:layout_constraintStart_toStartOf="@+id/tx_detail_id"
+                app:layout_constraintTop_toBottomOf="@+id/tx_detail_id"
+                tools:src="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/tx_detail_name"
+                android:layout_width="330dp"
+                android:layout_height="29dp"
+                android:layout_marginTop="52dp"
+                android:text="이름:"
+                app:layout_constraintEnd_toEndOf="@+id/img_detail_profile"
+                app:layout_constraintStart_toStartOf="@+id/img_detail_profile"
+                app:layout_constraintTop_toBottomOf="@+id/img_detail_profile" />
+
+            <TextView
+                android:id="@+id/tx_detail_MBTI"
+                android:layout_width="330dp"
+                android:layout_height="29dp"
+                android:layout_marginTop="5dp"
+                android:text="MBTI:"
+                app:layout_constraintEnd_toEndOf="@+id/tx_detail_name"
+                app:layout_constraintStart_toStartOf="@+id/tx_detail_name"
+                app:layout_constraintTop_toBottomOf="@+id/tx_detail_name" />
+
+            <TextView
+                android:id="@+id/tx_detail_personality"
+                android:layout_width="330dp"
+                android:layout_height="29dp"
+                android:layout_marginTop="5dp"
+                android:text="성격:"
+                app:layout_constraintEnd_toEndOf="@+id/tx_detail_MBTI"
+                app:layout_constraintStart_toStartOf="@+id/tx_detail_MBTI"
+                app:layout_constraintTop_toBottomOf="@+id/tx_detail_MBTI" />
+
+            <TextView
+                android:id="@+id/tx_detail_TMI"
+                android:layout_width="330dp"
+                android:layout_height="29dp"
+                android:layout_marginTop="5dp"
+                android:text="TMI:"
+                app:layout_constraintEnd_toEndOf="@+id/tx_detail_personality"
+                app:layout_constraintStart_toStartOf="@+id/tx_detail_personality"
+                app:layout_constraintTop_toBottomOf="@+id/tx_detail_personality" />
+
+            <TextView
+                android:id="@+id/tx_detail_post"
+                android:layout_width="325dp"
+                android:layout_height="90dp"
+                android:text="게시글"
+                app:layout_constraintTop_toBottomOf="@id/tx_detail_TMI"
+                app:layout_constraintEnd_toEndOf="@id/tx_detail_TMI"
+                app:layout_constraintStart_toStartOf="@id/tx_detail_TMI"
+                android:layout_marginTop="20dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
