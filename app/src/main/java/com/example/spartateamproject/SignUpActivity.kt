@@ -3,10 +3,12 @@ package com.example.spartateamproject
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
 import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 
@@ -19,6 +21,8 @@ class SignUpActivity : AppCompatActivity() {
 
     //아이디 중복체크 위한 리스트
     val idList = UserDataList.userDataList.flatMap { it["id"]?.split(",") ?: emptyList() }
+
+    lateinit var iv_image: ImageView
 
     lateinit var et_userName: EditText
     lateinit var et_userId: EditText
@@ -43,7 +47,11 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
 
+        TextToSpeech()
+
 //        Toast.makeText(this,"$idList",Toast.LENGTH_SHORT).show()
+
+        iv_image = findViewById<ImageView>(R.id.iv_signUpLogo)
 
         et_userName = findViewById<EditText>(R.id.et_name)
         et_userId = findViewById<EditText>(R.id.et_id)
@@ -66,6 +74,16 @@ class SignUpActivity : AppCompatActivity() {
         lateinit var newEmail: String
         lateinit var newAuthent: String
 
+
+        //이미지 선택 버튼 코드 작성
+
+        //
+
+        //
+
+        //
+
+        //
 
         btn_checkId.setOnClickListener {
             newId = et_userId.text.toString()

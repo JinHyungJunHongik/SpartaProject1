@@ -24,4 +24,6 @@
     <string name="pw_not_strong_random">비밀번호는 대문자와 소문자, 특수문자를 모두 포함해야 합니다.</string>
     <string name="btn_newAuthent">새로고침</string>
     <string name="btn_checkAuthent">확인하기</string>
+    <string name="icon_sample">아이콘 샘플</string>
+    <string name="tts">TTS</string>
 </resources>
