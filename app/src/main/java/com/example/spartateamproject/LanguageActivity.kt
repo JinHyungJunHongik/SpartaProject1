@@ -1,20 +1,19 @@
 package com.example.spartateamproject
 
-
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageButton
 
-class SettingActivity : AppCompatActivity() {
-
+class LanguageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_setting)
+        setContentView(R.layout.activity_language)
 
-        val myPageBackButton = findViewById<ImageButton>(R.id.imgBtn_myPageBack)
+        val languageBackButton = findViewById<ImageButton>(R.id.imgBtn_languageBack)
 
-        myPageBackButton.setOnClickListener {
+        languageBackButton.setOnClickListener {
             finish()
         }
+
     }
 }
