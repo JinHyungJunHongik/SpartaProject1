@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent">
+
+    <LinearLayout
+        android:id="@+id/linear_postHead"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            app:cardCornerRadius="45dp"
+            >
+            <ImageView
+                android:id="@+id/img_postImg"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/man_icon1"
+                />
+        </com.google.android.material.card.MaterialCardView>
+        <TextView
+            android:id="@+id/tx_postID"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:text="아이디"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/tx_postText"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:text="TIL 작성글"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/linear_postHead"
+        />
+
+    <LinearLayout
+        android:id="@+id/linear_postTail"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tx_postText">
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/icon_heart" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
