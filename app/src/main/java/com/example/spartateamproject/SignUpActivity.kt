@@ -47,9 +47,9 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
 
-        TextToSpeech()
+//        TextToSpeech()
 
-//        Toast.makeText(this,"$idList",Toast.LENGTH_SHORT).show()
+        Toast.makeText(this,"$idList",Toast.LENGTH_SHORT).show()
 
         iv_image = findViewById<ImageView>(R.id.iv_signUpLogo)
 

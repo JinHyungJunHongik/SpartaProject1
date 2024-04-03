@@ -114,6 +114,16 @@
                 app:layout_constraintStart_toStartOf="@id/tx_detail_email"
                 app:layout_constraintTop_toBottomOf="@id/tx_detail_email" />
 
+            <TextView
+                android:id="@+id/tx_detail_morepost"
+                android:layout_width="85dp"
+                android:layout_height="29dp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintTop_toBottomOf="@id/tx_detail_post"
+                app:layout_constraintEnd_toEndOf="@id/tx_detail_post"
+                android:text="게시글 더보기"
+                android:clickable="true" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
