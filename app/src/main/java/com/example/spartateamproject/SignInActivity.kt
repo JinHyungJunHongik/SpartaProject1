@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.lifecycleScope
@@ -15,6 +16,7 @@ import kotlinx.coroutines.launch
 
 
 class SignInActivity : AppCompatActivity() {
+    lateinit var image : ImageView
     lateinit var id : EditText
     lateinit var password : EditText
     lateinit var login : Button
@@ -27,8 +29,10 @@ class SignInActivity : AppCompatActivity() {
     var prevInfo : ActivityResultLauncher<Intent> = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
 
         if(it.resultCode == Activity.RESULT_OK){
+            val prevImage = it.data?.getStringExtra("userImage")?.toInt()
             val prevId = it.data?.getStringExtra("userID")
             val prevPw = it.data?.getStringExtra("userPW")
+            image.setImageResource(prevImage!!)
             id.setText(prevId)
             password.setText(prevPw)
 
@@ -55,6 +59,7 @@ class SignInActivity : AppCompatActivity() {
 
 
     private fun init() {
+        image = findViewById(R.id.img_sign_in_logo)
         id = findViewById(R.id.edit_sign_in_id)
         password = findViewById(R.id.edit_sign_in_pwd)
         login = findViewById(R.id.btn_login)
