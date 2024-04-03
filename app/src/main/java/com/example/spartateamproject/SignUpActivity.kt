@@ -9,10 +9,15 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import android.widget.TextView
 import android.widget.Toast
+import org.w3c.dom.Text
+import java.util.Locale
 
-//data class 새로 만들까요? 아니면 그냥 제가 원래 했던대로 할까요...?
+//SettingActivity에서 "name" 및 기타 정보에 활용
+//"name" 키를 통해 접근한 뒤 게시글 등을 함께 저장 가능
 object UserDataList {
     var userDataList = mutableListOf<Map<String, String>>()
 }
@@ -23,6 +28,12 @@ class SignUpActivity : AppCompatActivity() {
     val idList = UserDataList.userDataList.flatMap { it["id"]?.split(",") ?: emptyList() }
 
     lateinit var iv_image: ImageView
+    lateinit var rg_icon: RadioGroup
+    lateinit var rb_b1 : RadioButton
+    lateinit var rb_b2 : RadioButton
+    lateinit var rb_b3 : RadioButton
+    lateinit var rb_b4 : RadioButton
+    lateinit var rb_b5 : RadioButton
 
     lateinit var et_userName: EditText
     lateinit var et_userId: EditText
@@ -36,22 +47,30 @@ class SignUpActivity : AppCompatActivity() {
 
     lateinit var btn_checkId: Button
     lateinit var btn_createAuthent: Button
+    lateinit var btn_playTts: Button
     lateinit var btn_checkAuthent: Button
     lateinit var btn_join: Button
 
     var isIdOk = false
     var isAuthentOk = false
 
+    private lateinit var textToSpeech: TextToSpeech
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
 
-        TextToSpeech()
 
 //        Toast.makeText(this,"$idList",Toast.LENGTH_SHORT).show()
 
         iv_image = findViewById<ImageView>(R.id.iv_signUpLogo)
+
+        rg_icon = findViewById<RadioGroup>(R.id.rg_selectIcon)
+        rb_b1 = findViewById<RadioButton>(R.id.rb_1)
+        rb_b2 = findViewById<RadioButton>(R.id.rb_2)
+        rb_b3 = findViewById<RadioButton>(R.id.rb_3)
+        rb_b4 = findViewById<RadioButton>(R.id.rb_4)
+        rb_b5 = findViewById<RadioButton>(R.id.rb_5)
 
         et_userName = findViewById<EditText>(R.id.et_name)
         et_userId = findViewById<EditText>(R.id.et_id)
@@ -64,6 +83,7 @@ class SignUpActivity : AppCompatActivity() {
 
         btn_checkId = findViewById<Button>(R.id.btn_checkId)
         btn_createAuthent = findViewById<Button>(R.id.btn_newAuthent)
+        btn_playTts = findViewById<Button>(R.id.btn_tts)
         btn_checkAuthent = findViewById<Button>(R.id.btn_checkAuthent)
         btn_join = findViewById<Button>(R.id.btn_join)
 
@@ -74,8 +94,35 @@ class SignUpActivity : AppCompatActivity() {
         lateinit var newEmail: String
         lateinit var newAuthent: String
 
+        var selectedIcon : Int = 1
+
+//        lateinit var rg_icon: RadioGroup
+//        lateinit var rb_1 : RadioButton
+//        lateinit var rb_2 : RadioButton
+//        lateinit var rb_3 : RadioButton
+//        lateinit var rb_4 : RadioButton
+//        lateinit var rb_5 : RadioButton
+
 
         //이미지 선택 버튼 코드 작성
+
+//        rg_icon.setOnCheckedChangeListener(){
+//
+//        }
+
+        rg_icon.setOnCheckedChangeListener { group, checkedId ->
+            when(checkedId){
+                R.id.rb_2 -> iv_image.setImageResource(R.drawable.img_02)
+                R.id.rb_3 -> iv_image.setImageResource(R.drawable.img_03)
+                R.id.rb_4 -> iv_image.setImageResource(R.drawable.img_04)
+                R.id.rb_5 -> iv_image.setImageResource(R.drawable.img_05)
+                else -> iv_image.setImageResource(R.drawable.img_01)
+            }
+
+//            iv_image.setImageResource(R.drawable.)
+
+        }
+
 
         //
 
@@ -97,6 +144,32 @@ class SignUpActivity : AppCompatActivity() {
             btn_checkAuthent.text = getString(R.string.btn_checkAuthent)
             btn_checkAuthent.visibility = View.VISIBLE
         }
+
+        btn_playTts.setOnClickListener {
+            TextToSpeech(this) { text ->
+                if (text == TextToSpeech.SUCCESS) {
+                    val speechResult = textToSpeech.setLanguage(
+                        Locale.getDefault()
+                        //이러면 휴대폰 언어 지역을 사용한대요
+                    )
+                    if (speechResult == TextToSpeech.LANG_MISSING_DATA || speechResult == TextToSpeech.LANG_NOT_SUPPORTED) {
+                        Log.d("blog", "Error")
+
+                    } else {
+                        textToSpeech.speak(
+                            generatedAuthent,
+                            TextToSpeech.QUEUE_FLUSH,
+                            null,
+                            "authent"
+                        )
+                    }
+
+                } else {
+                    Log.d("blog", "error!")
+                }
+            }
+        }
+
 
         btn_checkAuthent.setOnClickListener {
             newAuthent = et_userAuthent.text.toString()
@@ -150,7 +223,7 @@ class SignUpActivity : AppCompatActivity() {
         } else {
             if (!isIdOk) {
                 Toast.makeText(this, getText(R.string.nonavailable_id), Toast.LENGTH_SHORT).show()
-            }else if(!strongID(newId)) {
+            } else if (!strongID(newId)) {
                 Toast.makeText(this, getText(R.string.id_not_strong), Toast.LENGTH_SHORT).show()
             }
         }
@@ -165,7 +238,7 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun generateRandom(): String {
-        val characters = ('a'..'z') + ('A'..'H')+('J'..'Z') + ('1'..'9')
+        val characters = ('a'..'z') + ('A'..'H') + ('J'..'Z') + ('1'..'9')
         val length = 6
         return (1..length).map { characters.random() }.joinToString("")
     }
@@ -189,10 +262,17 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
-    //비밀번호 강도 부분... 수정중입니다.
+//    //비밀번호 강도 부분... 수정중입니다.
 //    private fun checkPW(newPw: String):Boolean{
-//        val characters =
+//        val upperCaseChar = ('A'..'Z')
+//        val lowerCaseChar = ('a'..'z')
+//        val numChar = ('0'..'9')
+//        val specialChar = ('-'..'.')
 //
+//        val isUp : Boolean = newPw.containsMatchIn(upperCaseChar)
+//
+//
+////push가 안되면 git pull origin dev 한 뒤에 해결하고 다시 push해야 함
 //    }
 
     private fun checkAndReg(
@@ -234,8 +314,9 @@ class SignUpActivity : AppCompatActivity() {
                 .show()
             return
         }
-        if(!isAuthentOk){
-            Toast.makeText(this,getString(R.string.authent_check_required),Toast.LENGTH_SHORT).show()
+        if (!isAuthentOk) {
+            Toast.makeText(this, getString(R.string.authent_check_required), Toast.LENGTH_SHORT)
+                .show()
         }
 
         val objUserInfo: MutableMap<String, String> = mutableMapOf()
@@ -254,6 +335,12 @@ class SignUpActivity : AppCompatActivity() {
         if (!isFinishing) finish()
 
 
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        textToSpeech.stop()
+        textToSpeech.shutdown()
     }
 
 

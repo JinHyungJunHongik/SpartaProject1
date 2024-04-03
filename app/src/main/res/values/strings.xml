@@ -26,4 +26,9 @@
     <string name="btn_checkAuthent">확인하기</string>
     <string name="icon_sample">아이콘 샘플</string>
     <string name="tts">TTS</string>
+    <string name="num1">1</string>
+    <string name="num2">2</string>
+    <string name="num3">3</string>
+    <string name="num4">4</string>
+    <string name="num5">5</string>
 </resources>
