@@ -19,21 +19,23 @@
 
     <ImageButton
         android:id="@+id/imgBtn_myPageBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/btn_dialog" />
+        android:background="@drawable/img_arrow"
+        android:rotationY="180"/>
 
     <TextView
         android:id="@+id/tv_mp_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_marginStart="30dp"
         android:text="My page"
         android:textStyle="bold"
         android:textSize="25sp"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/imgBtn_myPageBack"
         app:layout_constraintStart_toEndOf="@+id/imgBtn_myPageBack"
         app:layout_constraintTop_toTopOf="@+id/imgBtn_myPageBack" />
@@ -44,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
         android:layout_marginStart="20dp"
-        android:text="계정:"
+        android:text="@string/계정"
         android:textStyle="bold"
         android:textSize="16sp"
         app:layout_constraintTop_toTopOf="@+id/img_profile"
@@ -55,7 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="이름:"
+        android:text="@string/이름"
         android:textStyle="bold"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/tv_mp_id"
@@ -66,46 +68,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="이메일:"
+        android:text="@string/이메일"
         android:textStyle="bold"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/tv_mp_name"
         app:layout_constraintTop_toBottomOf="@+id/tv_mp_name"/>
 
-    <Button
-        android:id="@+id/btn_editProfile"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/tv_editProfile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="프로필 편집"
+        android:text="@string/프로필편집"
         android:textStyle="bold"
         android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/mypage_buttonshape"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="5"
+        android:shadowDy="4"
+        android:shadowRadius="6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/img_profile" />
 
-    <Button
-        android:id="@+id/btn_language"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="언어 설정"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/btn_darkMode"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_editProfile"/>
-
-    <Button
-        android:id="@+id/btn_darkMode"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="다크모드 설정"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_language"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btn_language"
-        app:layout_constraintStart_toEndOf="@+id/btn_language"/>
 
     <TextView
         android:id="@+id/tv_postCount"
@@ -113,10 +99,24 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
-        android:text="게시글 수 0"
+        android:text="@string/게시글수"
         android:textStyle="bold"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_language"        />
+        app:layout_constraintTop_toBottomOf="@+id/tv_editProfile"
+        />
+
+    <TextView
+        android:id="@+id/tv_postCount_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="0"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/tv_postCount"
+        app:layout_constraintTop_toTopOf="@+id/tv_postCount"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_postCount"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
