@@ -242,12 +242,16 @@ class SignUpActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         }
     }
 
-//    //비밀번호 강도 부분... 수정중입니다.
-//    private fun checkPW(newPw: String):Boolean{
-//
-//
-//
-//    }
+    //비밀번호 강도 체크
+    private fun checkPW(newPw: String):Boolean{
+        val hasUpperCase = newPw.any{ it.isUpperCase()}
+        val hasLowerCase = newPw.any{ it.isLowerCase()}
+        val hasNum = newPw.any{it.isDigit()}
+        val hasSpeChar = newPw.any{!it.isLetterOrDigit()}
+        val isLengthOk = newPw.length>=8
+
+        return hasUpperCase && hasLowerCase && hasNum && hasSpeChar && isLengthOk
+    }
 
     //내용들이 올바르게 입력되었는지 확인 후 데이터 저장
     private fun checkAndReg(
@@ -271,9 +275,10 @@ class SignUpActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             return
         }
         //비밀번호 강도 부분 수정중입니다.
-//        if(){
-//
-//        }
+        if(!checkPW(newPw)){
+            Toast.makeText(this, getString(R.string.pw_not_strong), Toast.LENGTH_SHORT).show()
+            return
+        }
         if (!isIdOk) {
             Toast.makeText(this, getString(R.string.id_not_available), Toast.LENGTH_SHORT).show()
             return
