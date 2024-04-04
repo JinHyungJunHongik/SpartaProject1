@@ -30,6 +30,7 @@ lateinit var currentLoginUser : Member
 
 class MainActivity : AppCompatActivity() {
     lateinit var post : LinearLayout
+    lateinit var MyImg : ImageView
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -78,6 +79,8 @@ class MainActivity : AppCompatActivity() {
     }
     private fun init() {
         post = findViewById(R.id.linear_mainPost)
+        MyImg = findViewById(R.id.img_main_loginImg)
+        MyImg.setImageResource(currentLoginUser._img)
         iconList.add(findViewById(R.id.img_main_member1))
         iconList.add(findViewById(R.id.img_main_member2))
         iconList.add(findViewById(R.id.img_main_member3))
@@ -96,6 +99,11 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("key", i)
                 startActivity(intent)
             }
+        }
+        MyImg.setOnClickListener {
+            val intent = Intent(this, DetailActivity::class.java)
+            intent.putExtra("id", currentLoginUser._id)
+            startActivity(intent)
         }
     }
     private fun initDataSetting(){

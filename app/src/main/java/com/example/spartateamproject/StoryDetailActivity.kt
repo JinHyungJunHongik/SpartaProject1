@@ -41,6 +41,7 @@ class StoryDetailActivity : AppCompatActivity() {
         icon.setOnClickListener {
             iconClick = true
             val intent = Intent(this@StoryDetailActivity, DetailActivity::class.java)
+            intent.putExtra("id", storyData._id)
             startActivity(intent)
             finish()
         }
