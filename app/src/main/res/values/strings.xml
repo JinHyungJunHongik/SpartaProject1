@@ -26,14 +26,12 @@
     <string name="btn_checkAuthent">확인하기</string>
     <string name="icon_sample">아이콘 샘플</string>
     <string name="tts">TTS</string>
-<<<<<<< HEAD
     <string name="tv_mp_id">계정:</string>
     <string name="tv_mp_name">이름:</string>
     <string name="tv_mp_email">이메일:</string>
     <string name="tv_editProfile">프로필 편집</string>
     <string name="tv_postCount">게시글 수</string>
     <string name="tv_save">저장</string>
-=======
     <string name="lang_not_supported">지원되지 않는 언어입니다.</string>
     <string name="init_failed">초기화 실패</string>
     <string name="num1">1</string>
