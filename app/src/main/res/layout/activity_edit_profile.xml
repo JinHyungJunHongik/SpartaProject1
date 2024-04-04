@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SettingActivity">
+    tools:context=".EditProfileActivity">
 
 
     <ImageView
@@ -17,8 +17,10 @@
         app:layout_constraintTop_toTopOf="parent"
         android:src="@drawable/man_icon1" />
 
+
+
     <ImageButton
-        android:id="@+id/imgBtn_myPageBack"
+        android:id="@+id/imgBtn_etProfileBack"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_margin="20dp"
@@ -32,16 +34,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:text="My page"
+        android:text="Edit profile"
         android:textStyle="bold"
         android:textSize="25sp"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/imgBtn_myPageBack"
-        app:layout_constraintStart_toEndOf="@+id/imgBtn_myPageBack"
-        app:layout_constraintTop_toTopOf="@+id/imgBtn_myPageBack" />
+        app:layout_constraintBottom_toBottomOf="@+id/imgBtn_etProfileBack"
+        app:layout_constraintStart_toEndOf="@+id/imgBtn_etProfileBack"
+        app:layout_constraintTop_toTopOf="@+id/imgBtn_etProfileBack" />
 
     <TextView
-        android:id="@+id/tv_mp_id"
+        android:id="@+id/tv_ep_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
@@ -53,63 +55,63 @@
         app:layout_constraintStart_toEndOf="@+id/img_profile"/>
 
     <TextView
-        android:id="@+id/tv_mp_user_id"
+        android:id="@+id/tv_ep_user_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        app:layout_constraintStart_toEndOf="@+id/tv_mp_id"
-        app:layout_constraintTop_toTopOf="@+id/tv_mp_id"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_mp_id"
+        app:layout_constraintStart_toEndOf="@+id/tv_ep_id"
+        app:layout_constraintTop_toTopOf="@+id/tv_ep_id"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_ep_id"
         />
 
     <TextView
-        android:id="@+id/tv_mp_name"
+        android:id="@+id/tv_ep_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="@string/tv_mp_name"
         android:textStyle="bold"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/tv_mp_id"
-        app:layout_constraintTop_toBottomOf="@+id/tv_mp_id" />
+        app:layout_constraintStart_toStartOf="@+id/tv_ep_id"
+        app:layout_constraintTop_toBottomOf="@+id/tv_ep_id" />
 
-    <TextView
-        android:id="@+id/tv_mp_user_name"
+    <EditText
+        android:id="@+id/et_ep_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        app:layout_constraintStart_toEndOf="@+id/tv_mp_name"
-        app:layout_constraintTop_toTopOf="@+id/tv_mp_name"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_mp_name"
+        app:layout_constraintStart_toEndOf="@+id/tv_ep_name"
+        app:layout_constraintTop_toTopOf="@+id/tv_ep_name"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_ep_name"
         />
 
     <TextView
-        android:id="@+id/tv_mp_email"
+        android:id="@+id/tv_ep_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="@string/tv_mp_email"
         android:textStyle="bold"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/tv_mp_name"
-        app:layout_constraintTop_toBottomOf="@+id/tv_mp_name"/>
+        app:layout_constraintStart_toStartOf="@+id/tv_ep_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_ep_name"/>
 
-    <TextView
-        android:id="@+id/tv_mp_user_email"
+    <EditText
+        android:id="@+id/et_ep_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        app:layout_constraintStart_toEndOf="@+id/tv_mp_email"
-        app:layout_constraintTop_toTopOf="@+id/tv_mp_email"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_mp_email"
+        app:layout_constraintStart_toEndOf="@+id/tv_ep_email"
+        app:layout_constraintTop_toTopOf="@+id/tv_ep_email"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_ep_email"
         />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/tv_editProfile"
+        android:id="@+id/tv_ep_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="@string/tv_editProfile"
+        android:text="@string/tv_save"
         android:textStyle="bold"
         android:textSize="18sp"
         android:textColor="#FFFFFF"
@@ -123,30 +125,6 @@
         app:layout_constraintTop_toBottomOf="@+id/img_profile" />
 
 
-    <TextView
-        android:id="@+id/tv_postCount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/tv_postCount"
-        android:textStyle="bold"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_editProfile"
-        />
 
-    <TextView
-        android:id="@+id/tv_postCount_number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:text="0"
-        android:textStyle="bold"
-        android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/tv_postCount"
-        app:layout_constraintTop_toTopOf="@+id/tv_postCount"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_postCount"
-        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

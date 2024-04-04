@@ -278,7 +278,7 @@ class SignUpActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             Toast.makeText(this, getString(R.string.pw_not_same), Toast.LENGTH_SHORT).show()
             return
         }
-        //비밀번호 강도 부분 수정중입니다.
+        //비밀번호 강도 부분
         if(!checkPW(newPw)){
             Toast.makeText(this, getString(R.string.pw_not_strong), Toast.LENGTH_SHORT).show()
             return
@@ -330,7 +330,5 @@ class SignUpActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         textToSpeech.shutdown()
         super.onDestroy()
     }
-
-
 }
-//추가한 부분 testg
+
