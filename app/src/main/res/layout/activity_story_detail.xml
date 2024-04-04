@@ -23,12 +23,27 @@
         app:layout_constraintTop_toBottomOf="@+id/progress">
 
         <ImageView
-            android:id="@+id/img_postImg"
+            android:id="@+id/img_storyPostImg"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:src="@drawable/man_icon1" />
     </com.google.android.material.card.MaterialCardView>
+
     <TextView
+        android:id="@+id/tx_storyID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="아이디"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/card_storyIcon"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/tx_storyPost"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="스토리 테스트"

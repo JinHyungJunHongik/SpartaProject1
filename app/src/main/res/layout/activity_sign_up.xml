@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -16,10 +14,10 @@
         app:layout_constraintEnd_toEndOf="parent"
 
 
-        app:layout_constraintHorizontal_bias="0.164"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@drawable/img_01" />
 
     <TextView
         android:id="@+id/tv_signupText"
@@ -74,7 +72,7 @@
                 android:id="@+id/btn_checkId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
                 android:text="@string/btn_checkID"
                 app:layout_constraintBottom_toBottomOf="@+id/et_id"
                 app:layout_constraintStart_toEndOf="@+id/et_id"
@@ -123,9 +121,9 @@
                 android:id="@+id/tv_authent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="200dp"
+                android:layout_marginEnd="200dp"
                 android:gravity="center"
                 android:textSize="45sp"
 
@@ -155,12 +153,12 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv_authent" />
 
             <Button
-                android:id="@+id/tts"
+                android:id="@+id/btn_tts"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/tts"
 
-                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
                 app:layout_constraintStart_toEndOf="@+id/btn_newAuthent"
                 app:layout_constraintTop_toTopOf="@+id/btn_newAuthent"
                 app:layout_constraintBottom_toBottomOf="@+id/btn_newAuthent"/>
@@ -170,7 +168,7 @@
                 android:id="@+id/btn_checkAuthent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
+                android:layout_marginStart="40dp"
                 android:text="@string/btn_checkAuthent"
 
                 app:layout_constraintBottom_toBottomOf="@+id/btn_newAuthent"
@@ -210,40 +208,52 @@
         >
 
         <LinearLayout
+            android:id="@+id/cl_iconScroll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <CheckBox
-                android:id="@+id/cb_1"
-                android:layout_width="wrap_content"
+            <RadioGroup
+                android:id="@+id/rg_selectIcon"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/icon_sample"
-                />
+                android:orientation="vertical">
 
-            <CheckBox
-                android:id="@+id/cb_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/icon_sample"/>
+                <RadioButton
+                    android:id="@+id/rb_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/num1"/>
 
-            <CheckBox
-                android:id="@+id/cb_3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/icon_sample"/>
+                <RadioButton
+                    android:id="@+id/rb_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/num2"/>
 
-            <CheckBox
-                android:id="@+id/cb_4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/icon_sample"/>
+                <RadioButton
+                    android:id="@+id/rb_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/num3"/>
 
-            <CheckBox
-                android:id="@+id/cb_5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/icon_sample"/>
+                <RadioButton
+                    android:id="@+id/rb_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/num4"/>
+
+                <RadioButton
+                    android:id="@+id/rb_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/num5"/>
+
+
+
+            </RadioGroup>
+
+
 
 
         </LinearLayout>
