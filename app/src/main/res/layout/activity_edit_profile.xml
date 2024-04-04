@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditProfileActivity">
+
+
+    <ImageView
+        android:id="@+id/img_profile"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="90dp"
+        android:layout_marginStart="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/man_icon1" />
+
+
+
+    <ImageButton
+        android:id="@+id/imgBtn_etProfileBack"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/img_arrow"
+        android:rotationY="180"/>
+
+    <TextView
+        android:id="@+id/tv_mp_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:text="Edit profile"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/imgBtn_etProfileBack"
+        app:layout_constraintStart_toEndOf="@+id/imgBtn_etProfileBack"
+        app:layout_constraintTop_toTopOf="@+id/imgBtn_etProfileBack" />
+
+    <TextView
+        android:id="@+id/tv_ep_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:layout_marginStart="20dp"
+        android:text="@string/tv_mp_id"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        app:layout_constraintTop_toTopOf="@+id/img_profile"
+        app:layout_constraintStart_toEndOf="@+id/img_profile"/>
+
+    <TextView
+        android:id="@+id/tv_ep_user_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toEndOf="@+id/tv_ep_id"
+        app:layout_constraintTop_toTopOf="@+id/tv_ep_id"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_ep_id"
+        />
+
+    <TextView
+        android:id="@+id/tv_ep_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/tv_mp_name"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/tv_ep_id"
+        app:layout_constraintTop_toBottomOf="@+id/tv_ep_id" />
+
+    <EditText
+        android:id="@+id/et_ep_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toEndOf="@+id/tv_ep_name"
+        app:layout_constraintTop_toTopOf="@+id/tv_ep_name"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_ep_name"
+        />
+
+    <TextView
+        android:id="@+id/tv_ep_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/tv_mp_email"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/tv_ep_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_ep_name"/>
+
+    <EditText
+        android:id="@+id/et_ep_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toEndOf="@+id/tv_ep_email"
+        app:layout_constraintTop_toTopOf="@+id/tv_ep_email"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_ep_email"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/tv_ep_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/tv_save"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/mypage_buttonshape"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="5"
+        android:shadowDy="4"
+        android:shadowRadius="6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_profile" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
