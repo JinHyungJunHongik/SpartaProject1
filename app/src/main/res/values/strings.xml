@@ -43,4 +43,20 @@
     <string name="et_no_pw">비밀번호를 확인해주세요.</string>
     <string name="et_check_idpw">아이디/비밀번호를 확인해 주세요.</string>
     <string name="login_ok">로그인 성공</string>
+    <string name="mbti1">ISFP</string>
+    <string name="personality1">항상 침착한 편</string>
+    <string name="tmi1">고양이 좋아해요</string>
+    <string name="mbti2">ISFP</string>
+    <string name="personality2">항상 침착한 편</string>
+    <string name="tmi2">고양이 좋아해요</string>
+    <string name="mbti3">ISFP</string>
+    <string name="personality3">항상 침착한 편</string>
+    <string name="tmi3">고양이 좋아해요</string>
+    <string name="mbti4">ISFP</string>
+    <string name="personality4">항상 침착한 편</string>
+    <string name="tmi4">고양이 좋아해요</string>
+    <string name="link1">https://nochfm0513.tistory.com/</string>
+    <string name="link2">https://nochfm0513.tistory.com/</string>
+    <string name="link3">https://nochfm0513.tistory.com/</string>
+    <string name="link4">https://nochfm0513.tistory.com/</string>
 </resources>

@@ -40,78 +40,134 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/img_detail_profile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:layout_marginTop="20dp"
                 app:civ_border_width="2dp"
                 app:civ_border_color="@color/black"
                 app:layout_constraintEnd_toEndOf="@+id/tx_detail_id"
                 app:layout_constraintStart_toStartOf="@+id/tx_detail_id"
                 app:layout_constraintTop_toBottomOf="@+id/tx_detail_id"
-                tools:src="@tools:sample/avatars" />
+                android:background="@drawable/img_01" />
+
+            <TextView
+                android:id="@+id/tx_detail_nametx"
+                android:layout_width="50dp"
+                android:layout_height="29dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/img_detail_profile"
+                android:layout_marginTop="52dp"
+                android:layout_marginStart="55dp"
+                android:text="이름:"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tx_detail_MBTItx"
+                android:layout_width="50dp"
+                android:layout_height="29dp"
+                app:layout_constraintStart_toStartOf="@id/tx_detail_nametx"
+                app:layout_constraintTop_toBottomOf="@id/tx_detail_nametx"
+                app:layout_constraintEnd_toEndOf="@id/tx_detail_nametx"
+                android:layout_marginTop="5dp"
+                android:text="MBTI:"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tx_detail_personalitytx"
+                android:layout_width="50dp"
+                android:layout_height="29dp"
+                app:layout_constraintStart_toStartOf="@id/tx_detail_MBTItx"
+                app:layout_constraintTop_toBottomOf="@id/tx_detail_MBTItx"
+                app:layout_constraintEnd_toEndOf="@id/tx_detail_MBTItx"
+                android:layout_marginTop="5dp"
+                android:text="성격:"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tx_detail_TMItx"
+                android:layout_width="50dp"
+                android:layout_height="29dp"
+                app:layout_constraintStart_toStartOf="@id/tx_detail_personalitytx"
+                app:layout_constraintTop_toBottomOf="@id/tx_detail_personalitytx"
+                app:layout_constraintEnd_toEndOf="@id/tx_detail_personalitytx"
+                android:layout_marginTop="5dp"
+                android:text="TMI:"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tx_detail_emailtx"
+                android:layout_width="50dp"
+                android:layout_height="29dp"
+                app:layout_constraintStart_toStartOf="@id/tx_detail_TMItx"
+                app:layout_constraintTop_toBottomOf="@id/tx_detail_TMItx"
+                app:layout_constraintEnd_toEndOf="@id/tx_detail_TMItx"
+                android:layout_marginTop="5dp"
+                android:text="이메일:"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tx_detail_name"
-                android:layout_width="330dp"
+                android:layout_width="230dp"
                 android:layout_height="29dp"
-                android:layout_marginTop="52dp"
-                android:text="이름:"
-                app:layout_constraintEnd_toEndOf="@+id/img_detail_profile"
-                app:layout_constraintStart_toStartOf="@+id/img_detail_profile"
-                app:layout_constraintTop_toBottomOf="@+id/img_detail_profile" />
+                android:text="이름"
+                android:layout_marginStart="5dp"
+                app:layout_constraintStart_toEndOf="@id/tx_detail_nametx"
+                app:layout_constraintTop_toTopOf="@id/tx_detail_nametx"
+                app:layout_constraintBottom_toBottomOf="@id/tx_detail_nametx"/>
 
             <TextView
                 android:id="@+id/tx_detail_MBTI"
-                android:layout_width="330dp"
+                android:layout_width="230dp"
                 android:layout_height="29dp"
-                android:layout_marginTop="5dp"
-                android:text="MBTI:"
-                app:layout_constraintEnd_toEndOf="@+id/tx_detail_name"
-                app:layout_constraintStart_toStartOf="@+id/tx_detail_name"
-                app:layout_constraintTop_toBottomOf="@+id/tx_detail_name" />
+                android:text="MBTI"
+                android:layout_marginStart="5dp"
+                app:layout_constraintStart_toEndOf="@id/tx_detail_MBTItx"
+                app:layout_constraintTop_toTopOf="@id/tx_detail_MBTItx"
+                app:layout_constraintBottom_toBottomOf="@id/tx_detail_MBTItx"/>
 
             <TextView
                 android:id="@+id/tx_detail_personality"
-                android:layout_width="330dp"
+                android:layout_width="230dp"
                 android:layout_height="29dp"
-                android:layout_marginTop="5dp"
-                android:text="성격:"
-                app:layout_constraintEnd_toEndOf="@+id/tx_detail_MBTI"
-                app:layout_constraintStart_toStartOf="@+id/tx_detail_MBTI"
-                app:layout_constraintTop_toBottomOf="@+id/tx_detail_MBTI" />
+                android:layout_marginStart="5dp"
+                android:text="성격"
+                app:layout_constraintBottom_toBottomOf="@id/tx_detail_personalitytx"
+                app:layout_constraintStart_toEndOf="@id/tx_detail_personalitytx"
+                app:layout_constraintTop_toTopOf="@id/tx_detail_personalitytx"
+                app:layout_constraintVertical_bias="1.0" />
 
             <TextView
                 android:id="@+id/tx_detail_TMI"
-                android:layout_width="330dp"
+                android:layout_width="230dp"
                 android:layout_height="29dp"
-                android:layout_marginTop="5dp"
-                android:text="TMI:"
-                app:layout_constraintEnd_toEndOf="@+id/tx_detail_personality"
-                app:layout_constraintStart_toStartOf="@+id/tx_detail_personality"
-                app:layout_constraintTop_toBottomOf="@+id/tx_detail_personality" />
+                android:text="TMI"
+                android:layout_marginStart="5dp"
+                app:layout_constraintStart_toEndOf="@id/tx_detail_TMItx"
+                app:layout_constraintTop_toTopOf="@id/tx_detail_TMItx"
+                app:layout_constraintBottom_toBottomOf="@id/tx_detail_TMItx"/>
 
             <TextView
                 android:id="@+id/tx_detail_email"
-                android:layout_width="330dp"
+                android:layout_width="230dp"
                 android:layout_height="29dp"
-                app:layout_constraintTop_toBottomOf="@id/tx_detail_TMI"
-                app:layout_constraintStart_toStartOf="@id/tx_detail_TMI"
-                app:layout_constraintEnd_toEndOf="@id/tx_detail_TMI"
-                android:layout_marginTop="5dp"
-                android:text="이메일: taejun0513@gmail.com"
+                app:layout_constraintStart_toEndOf="@id/tx_detail_emailtx"
+                app:layout_constraintTop_toTopOf="@id/tx_detail_emailtx"
+                app:layout_constraintBottom_toBottomOf="@id/tx_detail_emailtx"
+                android:layout_marginStart="5dp"
+                android:text="tj12@gmail.com"
                 android:autoLink="email"
-                android:linksClickable="true" /> <!-- 이메일 주소를 링크로 인식하고 클릭이 가능하게 설정 -->
+                android:linksClickable="true" />
 
             <TextView
                 android:id="@+id/tx_detail_post"
-                android:layout_width="325dp"
+                android:layout_width="283dp"
                 android:layout_height="90dp"
-
+                android:textStyle="bold"
                 android:layout_marginTop="40dp"
                 android:text="게시글"
                 app:layout_constraintEnd_toEndOf="@id/tx_detail_email"
                 app:layout_constraintHorizontal_bias="0.4"
-                app:layout_constraintStart_toStartOf="@id/tx_detail_email"
+                app:layout_constraintStart_toStartOf="@id/tx_detail_emailtx"
                 app:layout_constraintTop_toBottomOf="@id/tx_detail_email" />
 
             <TextView
