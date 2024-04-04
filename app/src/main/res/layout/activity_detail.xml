@@ -124,6 +124,17 @@
                 android:text="게시글 더보기"
                 android:clickable="true" />
 
+            <ImageButton
+                android:id="@+id/btn_detail_setting"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                app:layout_constraintStart_toEndOf="@id/tx_detail_id"
+                app:layout_constraintTop_toTopOf="@id/tx_detail_id"
+                app:layout_constraintBottom_toBottomOf="@id/tx_detail_id"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/img_gear" />
+
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
