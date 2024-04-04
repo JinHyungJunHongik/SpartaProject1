@@ -142,6 +142,7 @@ class SignUpActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             if (generatedAuthent == newAuthent) {
                 isAuthentOk = true
                 Toast.makeText(this, getString(R.string.authent_correct), Toast.LENGTH_SHORT).show()
+
                 //토스트를 띄운 뒤, 버튼을 없앰
                 btn_checkAuthent.text = getString(R.string.authent_correct)
                 btn_checkAuthent.visibility = View.GONE
@@ -162,6 +163,7 @@ class SignUpActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             newEmail = et_userEmail.text.toString()
             newAuthent = et_userAuthent.text.toString()
             checkAndReg(newName, newId, newPw, checkPw, newEmail, newAuthent)
+
         }
     }
 
@@ -208,6 +210,7 @@ class SignUpActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         }
     }
 
+
     //보안문자 생성, generatedAuthent에 저장, 기존에 사용자가 입력한 보안문자는 삭제
     private fun generateAuthent() {
         generatedAuthent = generateRandom()
@@ -224,6 +227,7 @@ class SignUpActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     //이메일 형식 확인
     private fun checkEmail(newEmail: String): Boolean {
+
         val emailSample = "[a-zA-Z0-9._-]+@[a-z]+.+[a-z]+"
 
         return if (!newEmail.matches(emailSample.toRegex())) {
@@ -326,4 +330,81 @@ class SignUpActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         textToSpeech.shutdown()
         super.onDestroy()
     }
+
+    private fun strongID(newId: String): Boolean {
+        if (newId.length >= 5) {
+            return true
+        } else {
+            return false
+        }
+    }
+
+    //비밀번호 강도 부분... 수정중입니다.
+//    private fun checkPW(newPw: String):Boolean{
+//        val characters =
+//
+//    }
+
+    private fun checkAndReg(
+        newName: String,
+        newId: String,
+        newPw: String,
+        checkPw: String,
+        newEmail: String,
+        newAuthent: String
+    ) {
+        if (newName.isEmpty() || newId.isEmpty() || newPw.isEmpty() || checkPw.isEmpty() || newEmail.isEmpty() || newAuthent.isEmpty()) {
+            Toast.makeText(this, getString(R.string.empty_in_et), Toast.LENGTH_SHORT).show()
+            return
+        }
+        if (!strongID(newId)) {
+            Toast.makeText(this, getString(R.string.id_not_strong), Toast.LENGTH_SHORT).show()
+            return
+        }
+        if (newPw != checkPw) {
+            Toast.makeText(this, getString(R.string.pw_not_same), Toast.LENGTH_SHORT).show()
+            return
+        }
+        //비밀번호 강도 부분 수정중입니다.
+//        if(){
+//
+//        }
+        if (!isIdOk) {
+            Toast.makeText(this, getString(R.string.id_not_available), Toast.LENGTH_SHORT)
+                .show()
+            return
+        }
+        if (!checkEmail(newEmail)) {
+            Toast.makeText(this, getString(R.string.email_not_correct), Toast.LENGTH_SHORT)
+                .show()
+            return
+        }
+        if (newAuthent != generatedAuthent) {
+            Toast.makeText(this, getString(R.string.authent_not_correct), Toast.LENGTH_SHORT)
+                .show()
+            return
+        }
+        if(!isAuthentOk){
+            Toast.makeText(this,getString(R.string.authent_check_required),Toast.LENGTH_SHORT).show()
+        }
+
+        val objUserInfo: MutableMap<String, String> = mutableMapOf()
+        objUserInfo["name"] = newName
+        objUserInfo["id"] = newId
+        objUserInfo["pw"] = newPw
+        objUserInfo["email"] = newEmail
+
+        UserDataList.userDataList.add(objUserInfo)
+
+        val returnIntent = Intent(this, SignInActivity::class.java)
+        returnIntent.putExtra("userID", newId)
+        returnIntent.putExtra("userPW", newPw)
+        setResult(RESULT_OK, returnIntent)
+
+        if (!isFinishing) finish()
+
+
+    }
+
+
 }
