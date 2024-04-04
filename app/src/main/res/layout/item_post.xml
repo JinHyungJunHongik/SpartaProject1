@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:padding="2dp">
@@ -65,13 +66,7 @@
             android:layout_marginStart="16dp"
             android:layout_gravity="center"
             android:src="@drawable/icon_heart" />
-        <ImageView
-            android:id="@+id/img_comment"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="16dp"
-            android:layout_gravity="center"
-            android:src="@drawable/icon_comment" />
+
     </LinearLayout>
     <TextView
         android:id="@+id/tx_like"
@@ -108,5 +103,24 @@
         android:layout_marginTop="4dp"
         android:visibility="gone"/>
 
+    <EditText
+        android:id="@+id/edit_comment"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16sp"
+        android:hint="댓글 입력.."
+        android:textSize="16sp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linear_comment_container" />
 
+    <ImageView
+        android:id="@+id/img_commentInput"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/img_input"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@+id/edit_comment"
+        app:layout_constraintTop_toBottomOf="@+id/linear_comment_container" />
 </androidx.constraintlayout.widget.ConstraintLayout>

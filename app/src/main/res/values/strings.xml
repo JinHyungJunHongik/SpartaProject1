@@ -26,4 +26,15 @@
     <string name="btn_checkAuthent">확인하기</string>
     <string name="icon_sample">아이콘 샘플</string>
     <string name="tts">TTS</string>
+    <string name="lang_not_supported">지원되지 않는 언어입니다.</string>
+    <string name="init_failed">초기화 실패</string>
+    <string name="num1">1</string>
+    <string name="num2">2</string>
+    <string name="num3">3</string>
+    <string name="num4">4</string>
+    <string name="num5">5</string>
+    <string name="et_no_id">아이디를 확인해주세요.</string>
+    <string name="et_no_pw">비밀번호를 확인해주세요.</string>
+    <string name="et_check_idpw">아이디/비밀번호를 확인해 주세요.</string>
+    <string name="login_ok">로그인 성공</string>
 </resources>
