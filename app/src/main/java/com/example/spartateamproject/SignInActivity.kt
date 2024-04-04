@@ -67,6 +67,7 @@ class SignInActivity : AppCompatActivity() {
         password = findViewById(R.id.edit_sign_in_pwd)
         login = findViewById(R.id.btn_login)
         signup = findViewById(R.id.btn_signup)
+        image = findViewById(R.id.img_sign_in_logo)
     }
 
     private fun isLoginAvailable() {
