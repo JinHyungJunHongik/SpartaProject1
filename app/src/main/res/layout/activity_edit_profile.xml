@@ -20,7 +20,7 @@
 
 
     <ImageButton
-        android:id="@+id/imgBtn_myPageBack"
+        android:id="@+id/imgBtn_etProfileBack"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_margin="20dp"
@@ -38,9 +38,9 @@
         android:textStyle="bold"
         android:textSize="25sp"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/imgBtn_myPageBack"
-        app:layout_constraintStart_toEndOf="@+id/imgBtn_myPageBack"
-        app:layout_constraintTop_toTopOf="@+id/imgBtn_myPageBack" />
+        app:layout_constraintBottom_toBottomOf="@+id/imgBtn_etProfileBack"
+        app:layout_constraintStart_toEndOf="@+id/imgBtn_etProfileBack"
+        app:layout_constraintTop_toTopOf="@+id/imgBtn_etProfileBack" />
 
     <TextView
         android:id="@+id/tv_ep_id"

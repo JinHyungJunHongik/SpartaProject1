@@ -8,6 +8,7 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.widget.AppCompatButton
 
 class EditProfileActivity : AppCompatActivity() {
 
@@ -15,10 +16,9 @@ class EditProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_profile)
 
-
         val editName = findViewById<EditText>(R.id.et_ep_name)
         val editEmail = findViewById<EditText>(R.id.et_ep_email)
-        val btnSave = findViewById<TextView>(R.id.tv_ep_save)
+        val btnSave = findViewById<AppCompatButton>(R.id.tv_ep_save)
 
 
 
@@ -49,7 +49,7 @@ class EditProfileActivity : AppCompatActivity() {
     }
 
     private fun editProfileBack() { // 뒤로가기
-        val myPageBackButton = findViewById<ImageButton>(R.id.imgBtn_myPageBack)
+        val myPageBackButton = findViewById<ImageButton>(R.id.imgBtn_etProfileBack)
 
         myPageBackButton.setOnClickListener {
             finish()
