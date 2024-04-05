@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SpartaTeamProject</string>
-    <string name="tv_signup_text">변경예정</string>
+    <string name="tv_signup_text">Pick the photo you want.</string>
     <string name="et_nameHint">Name</string>
     <string name="et_idHint">ID</string>
     <string name="et_pwHint">Password</string>
