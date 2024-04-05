@@ -102,7 +102,6 @@ class MainActivity : AppCompatActivity() {
         card2 = findViewById(R.id.card_main_member2)
         card3 = findViewById(R.id.card_main_member3)
         card4 = findViewById(R.id.card_main_member4)
-
         MyImg.setImageResource(currentLoginUser._img)
         icon1.setImageResource(UserdataPull[0]._img)
         icon2.setImageResource(UserdataPull[1]._img)

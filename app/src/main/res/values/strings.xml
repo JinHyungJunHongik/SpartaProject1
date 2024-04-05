@@ -47,16 +47,16 @@
     <string name="personality1">항상 침착한 편</string>
     <string name="tmi1">고양이 좋아해요</string>
     <string name="mbti2">ISFP</string>
-    <string name="personality2">항상 침착한 편</string>
-    <string name="tmi2">고양이 좋아해요</string>
-    <string name="mbti3">ISFP</string>
-    <string name="personality3">항상 침착한 편</string>
-    <string name="tmi3">고양이 좋아해요</string>
-    <string name="mbti4">ISFP</string>
-    <string name="personality4">항상 침착한 편</string>
-    <string name="tmi4">고양이 좋아해요</string>
+    <string name="personality2">내향적</string>
+    <string name="tmi2">술자리는 빠지지 않는 편</string>
+    <string name="mbti3">ISTJ</string>
+    <string name="personality3">조용함, 차분함</string>
+    <string name="tmi3">신나고 정신사나운 노래 좋아함</string>
+    <string name="mbti4">ENFP</string>
+    <string name="personality4">솔직한 편</string>
+    <string name="tmi4">만약에~ 로 시작하는 상상 좋아함</string>
     <string name="link1">https://nochfm0513.tistory.com/</string>
-    <string name="link2">https://nochfm0513.tistory.com/</string>
-    <string name="link3">https://nochfm0513.tistory.com/</string>
-    <string name="link4">https://nochfm0513.tistory.com/</string>
+    <string name="link2">https://nsisn.tistory.com/</string>
+    <string name="link3">https://sugapowderjj.tistory.com/</string>
+    <string name="link4">https://bbosajang.tistory.com/</string>
 </resources>
