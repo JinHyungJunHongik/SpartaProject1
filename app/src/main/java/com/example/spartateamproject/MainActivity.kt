@@ -28,10 +28,11 @@ val dummyText = mutableListOf<String>()
 // 포스트를 담을 컨테이너 뷰 안에 넣을 포스트 리스트
 val totalpostList = mutableListOf<Post>()
 var isCheck = false
-lateinit var currentLoginUser : Member
+var currentLoginUser = Member("id", "password", "name", 0, "email")
 
 class MainActivity : AppCompatActivity() {
     lateinit var post : LinearLayout
+    lateinit var welcomeText: TextView
     lateinit var MyImg : ImageView
     lateinit var icon1 : ImageView
     lateinit var icon2 : ImageView
@@ -53,6 +54,7 @@ class MainActivity : AppCompatActivity() {
             isCheck = true
         }
         init()
+        Log.d("로그인된 값", "${currentLoginUser._id}")
         //메인 화면에 뜨는 게시글 리스트 출력을 위한 addView 관련 코드 입니다
             totalpostList.forEach {
                 val item = LayoutInflater.from(this@MainActivity).inflate(R.layout.item_post, null)
@@ -94,6 +96,7 @@ class MainActivity : AppCompatActivity() {
         Log.d("초기설정", "초기 설정 완료")
         post = findViewById(R.id.linear_mainPost)
         MyImg = findViewById(R.id.img_main_loginImg)
+        welcomeText = findViewById(R.id.tv_welcomeText)
         icon1 = findViewById(R.id.img_main_member1)
         icon2 = findViewById(R.id.img_main_member2)
         icon3 = findViewById(R.id.img_main_member3)
@@ -102,7 +105,6 @@ class MainActivity : AppCompatActivity() {
         card2 = findViewById(R.id.card_main_member2)
         card3 = findViewById(R.id.card_main_member3)
         card4 = findViewById(R.id.card_main_member4)
-
         MyImg.setImageResource(currentLoginUser._img)
         icon1.setImageResource(UserdataPull[0]._img)
         icon2.setImageResource(UserdataPull[1]._img)
@@ -139,6 +141,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
             overridePendingTransition(R.anim.login_to_main,R.anim.login_to_main_none)
         }
+        welcomeText.text = "${currentLoginUser._name}님 환영합니다!"
     }
     private fun initDataSetting(){
         Log.d("초기데이터설정", "초기 데이터 설정 완료")
