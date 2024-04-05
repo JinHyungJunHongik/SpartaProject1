@@ -1,70 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.core.widget.NestedScrollView
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:padding="2dp">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_height="match_parent"
+    android:layout_width="match_parent"
+   >
 
     <LinearLayout
         android:id="@+id/linear_postHead"
         android:layout_width="match_parent"
         android:layout_height="80dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="1dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <com.google.android.material.card.MaterialCardView
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
-            app:cardCornerRadius="45dp"
-            >
+            app:cardCornerRadius="45dp">
+
             <ImageView
                 android:id="@+id/img_postImg"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@drawable/man_icon1"
-                />
+                android:src="@drawable/man_icon1" />
         </com.google.android.material.card.MaterialCardView>
+
         <TextView
             android:id="@+id/tx_postID"
-            android:layout_marginLeft="3dp"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
-            android:text="아이디"
-            android:textStyle="bold"
-            android:textSize="16sp"
-            android:gravity="center"
             android:layout_gravity="center"
-            />
+            android:layout_marginLeft="3dp"
+            android:gravity="center"
+            android:text="아이디"
+            android:textSize="16sp"
+            android:textStyle="bold" />
     </LinearLayout>
+
     <TextView
         android:id="@+id/tx_postText"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:text="TIL 작성글"
-        android:textStyle="bold"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="1dp"
         android:gravity="center"
+        android:maxLines="6"
+        android:ellipsize="end"
+        android:text="TIL 작성글"
         android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/linear_postHead"
-        />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linear_postHead" />
+
+        <TextView
+            android:id="@+id/tv_post_view_more"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="1dp"
+            android:text="더보기"
+            android:textSize="16sp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tx_postText" />
 
     <LinearLayout
         android:id="@+id/linear_postTail"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="1dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tx_postText">
+        app:layout_constraintTop_toBottomOf="@id/tv_post_view_more">
+
         <ImageView
             android:id="@+id/img_heart"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginStart="16dp"
             android:layout_gravity="center"
+            android:layout_marginStart="16dp"
             android:src="@drawable/icon_heart" />
 
     </LinearLayout>
@@ -124,3 +151,4 @@
         app:layout_constraintStart_toEndOf="@+id/edit_comment"
         app:layout_constraintTop_toBottomOf="@+id/linear_comment_container" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

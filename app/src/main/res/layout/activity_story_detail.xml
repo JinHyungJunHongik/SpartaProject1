@@ -49,6 +49,8 @@
         android:layout_height="wrap_content"
         android:text="스토리 테스트"
         android:textSize="24sp"
+        android:maxLines="8"
+        android:ellipsize="end"
         android:textStyle="bold"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"

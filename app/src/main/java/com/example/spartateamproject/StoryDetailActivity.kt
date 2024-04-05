@@ -38,7 +38,7 @@ class StoryDetailActivity : AppCompatActivity() {
         id = findViewById(R.id.tx_storyID)
         id.text = storyData._id
         img.setImageResource(storyData._img)
-        post.text = storyData.postList[2]._txt
+        post.text = storyData.postList[0]._txt
         icon.setOnClickListener {
             iconClick = true
             val intent = Intent(this@StoryDetailActivity, DetailActivity::class.java)
