@@ -11,8 +11,10 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.RadioButton
 import android.widget.RadioGroup
+import android.widget.Switch
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
 import kotlinx.coroutines.delay
 import org.w3c.dom.Text
 import java.util.Locale
@@ -65,7 +67,6 @@ class SignUpActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
-
 
 //        Toast.makeText(this,"$idList",Toast.LENGTH_SHORT).show()
 
