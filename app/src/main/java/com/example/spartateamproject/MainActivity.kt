@@ -1,6 +1,7 @@
 package com.example.spartateamproject
 
 import android.annotation.SuppressLint
+import android.app.ActivityOptions
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Color
@@ -27,6 +28,7 @@ val dummyText = mutableListOf<String>()
 // 포스트를 담을 컨테이너 뷰 안에 넣을 포스트 리스트
 val totalpostList = mutableListOf<Post>()
 var isCheck = false
+var postCheck = false
 var currentLoginUser = Member("id", "password", "name", 0, "email")
 
 class MainActivity : AppCompatActivity() {
@@ -53,42 +55,7 @@ class MainActivity : AppCompatActivity() {
             isCheck = true
         }
         init()
-        Log.d("로그인된 값", "${currentLoginUser._id}")
         //메인 화면에 뜨는 게시글 리스트 출력을 위한 addView 관련 코드 입니다
-            totalpostList.forEach {
-                val item = LayoutInflater.from(this@MainActivity).inflate(R.layout.item_post, null)
-                val itemText = item.findViewById<TextView>(R.id.tx_postText)
-                val itemImg = item.findViewById<ImageView>(R.id.img_postImg)
-                val itemId = item.findViewById<TextView>(R.id.tx_postID)
-                val openComment = item.findViewById<TextView>(R.id.tx_open_comment)
-                val commentContainer =
-                    item.findViewById<LinearLayout>(R.id.linear_comment_container)
-                val editComment = item.findViewById<EditText>(R.id.edit_comment)
-                val heart = item.findViewById<ImageView>(R.id.img_heart)
-                val like = item.findViewById<TextView>(R.id.tx_like)
-                val commentInputButton = item.findViewById<ImageView>(R.id.img_commentInput)
-                var numberOfLike = it.like
-                like.text = "좋아요 ${numberOfLike}개"
-                addCommentToContainer(commentContainer, it.commentList)
-                itemText.text = it._txt
-                itemId.text = it._id
-                itemImg.setImageResource(it.img)
-                postIconClick(itemImg, it)
-                openComment.setOnClickListener {
-                    commentContainer.visibility = View.VISIBLE
-                    openComment.visibility = View.GONE
-                    editComment.visibility = View.VISIBLE
-                    commentInputButton.visibility = View.VISIBLE
-                }
-                addComment(commentInputButton, commentContainer, it.commentList, editComment)
-                heart.setOnClickListener {
-                    heart.setImageResource(R.drawable.icon_colorheart)
-                    numberOfLike++
-                    like.text = "좋아요 ${numberOfLike}개"
-                }
-                it.like = numberOfLike
-                post.addView(item)
-            }
     }
     @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
     private fun init() {
@@ -109,7 +76,7 @@ class MainActivity : AppCompatActivity() {
         icon2.setImageResource(UserdataPull[1]._img)
         icon3.setImageResource(UserdataPull[2]._img)
         icon4.setImageResource(UserdataPull[3]._img)
-
+        // 스토리라인 클릭 시에는 메인 액티비티 finish처리 안함, 스토리라인에서 5초 후 다시 돌아오기 때문에
         icon1.setOnClickListener {
             card1.setStrokeColor(Color.rgb(0,0,0))
             val intent = Intent(this@MainActivity, StoryDetailActivity::class.java)
@@ -134,41 +101,74 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("key", 3)
             startActivity(intent)
         }
+
         MyImg.setOnClickListener {
             val intent = Intent(this, DetailActivity::class.java)
             intent.putExtra("id", currentLoginUser._id)
             startActivity(intent)
             overridePendingTransition(R.anim.login_to_main,R.anim.login_to_main_none)
+            finish()
         }
         welcomeText.text = "${currentLoginUser._name}님 환영합니다!"
+        totalpostList.forEach {
+            if (it != null) {
+                val item = LayoutInflater.from(this@MainActivity).inflate(R.layout.item_post, null)
+                val itemText = item.findViewById<TextView>(R.id.tx_postText)
+                val itemViewMore = item.findViewById<TextView>(R.id.tv_post_view_more)
+                val itemImg = item.findViewById<ImageView>(R.id.img_postImg)
+                val itemId = item.findViewById<TextView>(R.id.tx_postID)
+                val openComment = item.findViewById<TextView>(R.id.tx_open_comment)
+                val commentContainer =
+                    item.findViewById<LinearLayout>(R.id.linear_comment_container)
+                val editComment = item.findViewById<EditText>(R.id.edit_comment)
+                val heart = item.findViewById<ImageView>(R.id.img_heart)
+                val like = item.findViewById<TextView>(R.id.tx_like)
+                val commentInputButton = item.findViewById<ImageView>(R.id.img_commentInput)
+                var numberOfLike = it.like
+                like.text = "좋아요 ${numberOfLike}개"
+                addCommentToContainer(commentContainer, it.commentList)
+                itemText.text = it._txt
+                itemId.text = it._id
+                itemImg.setImageResource(it.img)
+                postIconClick(itemImg, it)
+                openComment.setOnClickListener {
+                    commentContainer.visibility = View.VISIBLE
+                    openComment.visibility = View.GONE
+                    editComment.visibility = View.VISIBLE
+                    commentInputButton.visibility = View.VISIBLE
+                }
+                postViewMore(itemText, itemViewMore)
+                addComment(commentInputButton, commentContainer, it.commentList, editComment)
+                heart.setOnClickListener {
+                    heart.setImageResource(R.drawable.icon_colorheart)
+                    numberOfLike++
+                    like.text = "좋아요 ${numberOfLike}개"
+                }
+                it.like = numberOfLike
+                post.addView(item)
+            }
+        }
     }
     private fun initDataSetting(){
         Log.d("초기데이터설정", "초기 데이터 설정 완료")
         //더미 데이터 테스트용입니다. 테스트 출력 용도
-        for (i in 0..11){
-            dummyText.add("${i+1}번째 테스트용 TIL 입니다")
-        }
-
-        for(i in 0.. 11){
-            if(i in 0..2){
-                UserdataPull[0].addPost(Post(UserdataPull[0], dummyText[i]))
-            }
-            else if(i in 3..5){
-                UserdataPull[1].addPost(Post(UserdataPull[1], dummyText[i]))
-            }
-            else if(i in 6..8){
-                UserdataPull[2].addPost(Post(UserdataPull[2], dummyText[i]))
-            }
-            else if(i in 9..11){
-                UserdataPull[3].addPost(Post(UserdataPull[3], dummyText[i]))
-            }
-        }
+        val text1 = getText(R.string.TIL1).toString()
+        val text2 = getText(R.string.TIL2).toString()
+        val text3 = getText(R.string.TIL3).toString()
+        val text4 = getText(R.string.TIL4).toString()
+        dummyText.add(text1)
+        dummyText.add(text2)
+        dummyText.add(text3)
+        dummyText.add(text4)
+        UserdataPull[0].addPost(Post(UserdataPull[0], dummyText[0]))
+        UserdataPull[1].addPost(Post(UserdataPull[1], dummyText[1]))
+        UserdataPull[2].addPost(Post(UserdataPull[2], dummyText[2]))
+        UserdataPull[3].addPost(Post(UserdataPull[3], dummyText[3]))
         for(i in 0.. UserdataPull.size-1){
             UserdataPull[i].postList.forEach {
                 totalpostList.add(it)
             }
         }
-
     }
 
     //댓글 컨테이너 관련 코드, 댓글은 게시글 당 한 줄씩 더미 데이터를 삽입했음
@@ -238,6 +238,7 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, DetailActivity::class.java)
             intent.putExtra("id", post._id)
             startActivity(intent)
+            finish()
         }
     }
     private fun commentIconClick(img: ImageView, id: String){
@@ -245,7 +246,25 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, DetailActivity::class.java)
             intent.putExtra("id", id)
             startActivity(intent)
+            finish()
         }
     }
-
+    // 포스트 별 더보기 버튼 메소드, 현재 포스트의 maxLine = 6이며,
+    // 한 화면에 담을 수 없는 문자 수가 0보다 클 경우(post.layout.getEllipsisCount(lineNumber-1) > 0)
+    // 더보기 텍스트 버튼이 활성화 되며, 누르면 maxLine = 6에서 최대치로 늘고, 더보기 버튼이 gone 처리
+    //
+    private fun postViewMore(post: TextView, viewMore: TextView) {
+            post.post {
+                val lineNumber = post.layout.lineCount
+                if (lineNumber > 0) {
+                    if (post.layout.getEllipsisCount(lineNumber - 1) > 0) {
+                        viewMore.visibility = View.VISIBLE
+                        viewMore.setOnClickListener {
+                            post.maxLines = Int.MAX_VALUE
+                            viewMore.visibility = View.GONE
+                        }
+                    }
+                }
+            }
+        }
 }

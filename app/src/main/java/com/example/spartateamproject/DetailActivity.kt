@@ -1,5 +1,6 @@
 package com.example.spartateamproject
 
+import android.app.ActivityOptions
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -48,6 +49,8 @@ class DetailActivity : AppCompatActivity() {
 
         val btn_back = findViewById<ImageButton>(R.id.btn_detail_back)
         btn_back.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
             finish()
         }
     }
@@ -64,8 +67,9 @@ class DetailActivity : AppCompatActivity() {
         setting = findViewById(R.id.btn_detail_setting)
         setting.setOnClickListener {
             val intent = Intent(this, SettingActivity::class.java)
+            val options: ActivityOptions = ActivityOptions.makeSceneTransitionAnimation(this, setting, "trans_all")
             intent.putExtra("id", currentLoginUser._id)
-            startActivity(intent)
+            startActivity(intent, options.toBundle())
         }
         id.text = data._id
         name.text = data._name
@@ -75,7 +79,7 @@ class DetailActivity : AppCompatActivity() {
             post.text = "게시글 없음"
         }
         else
-            post.text = data.postList[2]._txt
+            post.text = data.postList[0]._txt
 
         if(data._name == "태준") {
             mbti.text = getText(R.string.mbti1)

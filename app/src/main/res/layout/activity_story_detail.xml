@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:transitionName="trans_all"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".StoryDetailActivity">
@@ -48,6 +49,8 @@
         android:layout_height="wrap_content"
         android:text="스토리 테스트"
         android:textSize="24sp"
+        android:maxLines="8"
+        android:ellipsize="end"
         android:textStyle="bold"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"

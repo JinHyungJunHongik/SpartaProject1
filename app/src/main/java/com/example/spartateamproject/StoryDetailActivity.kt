@@ -1,5 +1,6 @@
 package com.example.spartateamproject
 
+import android.app.ActivityOptions
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -37,12 +38,13 @@ class StoryDetailActivity : AppCompatActivity() {
         id = findViewById(R.id.tx_storyID)
         id.text = storyData._id
         img.setImageResource(storyData._img)
-        post.text = storyData.postList[2]._txt
+        post.text = storyData.postList[0]._txt
         icon.setOnClickListener {
             iconClick = true
             val intent = Intent(this@StoryDetailActivity, DetailActivity::class.java)
+            val options: ActivityOptions = ActivityOptions.makeSceneTransitionAnimation(this, icon, "trans_all")
             intent.putExtra("id", storyData._id)
-            startActivity(intent)
+            startActivity(intent, options.toBundle())
             finish()
         }
     }
