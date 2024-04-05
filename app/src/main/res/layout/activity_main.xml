@@ -6,6 +6,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/img_DM"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/icon_dm"
+        app:layout_constraintBottom_toTopOf="@+id/linear_mainHead"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:id="@+id/tv_welcomeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:text="환영인사"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/linear_mainHead"
+        app:layout_constraintEnd_toStartOf="@id/card_main_loginImg"
+        app:layout_constraintTop_toTopOf="parent" />
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card_main_loginImg"
         android:layout_width="80dp"
