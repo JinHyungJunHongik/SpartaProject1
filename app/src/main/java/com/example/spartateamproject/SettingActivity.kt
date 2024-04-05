@@ -117,7 +117,7 @@ class SettingActivity : AppCompatActivity() {
                 val intent = Intent(this, EditProfileActivity::class.java)
                 val options: ActivityOptionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(this, editProfile, "trans_all")
                 intent.putExtra("mpId",mpId.text.toString())
-                intent.putExtra("mpImage",mpImage.toString())
+                intent.putExtra("mpImage",bufferImage)
                 resultLanuncher.launch(intent, options)
 
             }
