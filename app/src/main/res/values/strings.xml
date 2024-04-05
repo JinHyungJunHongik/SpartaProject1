@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">SpartaTeamProject</string>
-    <string name="tv_signup_text">로그인 관련 설명 추가하기</string>
+    <string name="tv_signup_text">원하는 사진을 골라주세요.</string>
     <string name="et_nameHint">이름</string>
     <string name="et_idHint">아이디</string>
     <string name="et_pwHint">비밀번호</string>
@@ -59,7 +59,7 @@
     <string name="link2">https://nsisn.tistory.com/</string>
     <string name="link3">https://sugapowderjj.tistory.com/</string>
     <string name="link4">https://bbosajang.tistory.com/</string>
-     <string name="TIL1">
+    <string name="TIL1">
         오늘은 Git과 Github의 차이점을 알아보았다\n
         Git\n
         VCS(Version Control System)의 일종으로 프로그램의 버전 관리를 위한 툴.\n
