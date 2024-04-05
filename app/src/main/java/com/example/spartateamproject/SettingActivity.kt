@@ -20,6 +20,7 @@ class SettingActivity : AppCompatActivity() {
         lateinit var mpEmail: TextView
         lateinit var mpImage: ImageView
         lateinit var postCount: TextView
+        var bufferImage : String = ""
         //EditProfileActivity 에서 넘어온 정보를 받음
         private var resultLanuncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {result ->
             if (result.resultCode == Activity.RESULT_OK) {
@@ -83,6 +84,7 @@ class SettingActivity : AppCompatActivity() {
             //해당하는 맵을 찾았을 경우에 다른 키 값들을 가져와 변수에 저장하고
             if (targetMap != null) {
                 val icon = targetMap["image"]?.toInt()
+                bufferImage = targetMap["image"]!!
                 val id = targetMap["id"]
                 val pw = targetMap["pw"]
                 val email = targetMap["email"]
@@ -112,7 +114,8 @@ class SettingActivity : AppCompatActivity() {
             editProfile.setOnClickListener {
                 val intent = Intent(this, EditProfileActivity::class.java)
                 intent.putExtra("mpId",mpId.text.toString())
-                intent.putExtra("mpImage",mpImage.toString())
+//                intent.putExtra("mpImage",mpImage.toString())
+                intent.putExtra("mpImage", bufferImage)
                 resultLanuncher.launch(intent)
 
             }

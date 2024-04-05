@@ -28,7 +28,8 @@ class EditProfileActivity : AppCompatActivity() {
 
         val etImageView = findViewById<ImageView>(R.id.img_profile)
         if (etImage != null) {
-            etImageView.setImageURI(Uri.parse(etImage))
+//            etImageView.setImageURI(Uri.parse(etImage))
+                etImageView.setImageResource(etImage.toInt())
         }
 
 

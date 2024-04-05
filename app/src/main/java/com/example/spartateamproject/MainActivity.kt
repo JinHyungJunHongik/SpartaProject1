@@ -1,8 +1,10 @@
 package com.example.spartateamproject
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
 import android.graphics.Color
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -12,6 +14,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.whenStarted
 import com.google.android.material.card.MaterialCardView
@@ -23,15 +26,22 @@ import kotlinx.coroutines.launch
 val dummyText = mutableListOf<String>()
 // 포스트를 담을 컨테이너 뷰 안에 넣을 포스트 리스트
 val totalpostList = mutableListOf<Post>()
-var iconList = mutableListOf<ImageView>()
-var iconCardViewList = mutableListOf<MaterialCardView>()
 var isCheck = false
 lateinit var currentLoginUser : Member
 
 class MainActivity : AppCompatActivity() {
     lateinit var post : LinearLayout
     lateinit var MyImg : ImageView
-    @SuppressLint("MissingInflatedId")
+    lateinit var icon1 : ImageView
+    lateinit var icon2 : ImageView
+    lateinit var icon3 : ImageView
+    lateinit var icon4 : ImageView
+    lateinit var card1 : MaterialCardView
+    lateinit var card2 : MaterialCardView
+    lateinit var card3 : MaterialCardView
+    lateinit var card4 : MaterialCardView
+
+    @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -42,7 +52,6 @@ class MainActivity : AppCompatActivity() {
             isCheck = true
         }
         init()
-
         //메인 화면에 뜨는 게시글 리스트 출력을 위한 addView 관련 코드 입니다
             totalpostList.forEach {
                 val item = LayoutInflater.from(this@MainActivity).inflate(R.layout.item_post, null)
@@ -79,40 +88,64 @@ class MainActivity : AppCompatActivity() {
                 post.addView(item)
             }
     }
+    @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
     private fun init() {
+        Log.d("초기설정", "초기 설정 완료")
         post = findViewById(R.id.linear_mainPost)
         MyImg = findViewById(R.id.img_main_loginImg)
+        icon1 = findViewById(R.id.img_main_member1)
+        icon2 = findViewById(R.id.img_main_member2)
+        icon3 = findViewById(R.id.img_main_member3)
+        icon4 = findViewById(R.id.img_main_member4)
+        card1 = findViewById(R.id.card_main_member1)
+        card2 = findViewById(R.id.card_main_member2)
+        card3 = findViewById(R.id.card_main_member3)
+        card4 = findViewById(R.id.card_main_member4)
+
         MyImg.setImageResource(currentLoginUser._img)
-        iconList.add(findViewById(R.id.img_main_member1))
-        iconList.add(findViewById(R.id.img_main_member2))
-        iconList.add(findViewById(R.id.img_main_member3))
-        iconList.add(findViewById(R.id.img_main_member4))
-        for (i in 0..3) {
-            iconList[i].setImageResource(UserdataPull[i]._img)
+        icon1.setImageResource(UserdataPull[0]._img)
+        icon2.setImageResource(UserdataPull[1]._img)
+        icon3.setImageResource(UserdataPull[2]._img)
+        icon4.setImageResource(UserdataPull[3]._img)
+
+        icon1.setOnClickListener {
+            card1.setStrokeColor(Color.rgb(0,0,0))
+            val intent = Intent(this@MainActivity, StoryDetailActivity::class.java)
+            intent.putExtra("key", 0)
+            startActivity(intent)
         }
-        iconCardViewList.add(findViewById(R.id.card_main_member1))
-        iconCardViewList.add(findViewById(R.id.card_main_member2))
-        iconCardViewList.add(findViewById(R.id.card_main_member3))
-        iconCardViewList.add(findViewById(R.id.card_main_member4))
-        for(i in 0..3){
-            iconCardViewList[i].setOnClickListener {
-                iconCardViewList[i].setStrokeColor(Color.rgb(0,0,0))
-                val intent = Intent(this@MainActivity, StoryDetailActivity::class.java)
-                intent.putExtra("key", i)
-                startActivity(intent)
-            }
+        icon2.setOnClickListener {
+            card2.setStrokeColor(Color.rgb(0,0,0))
+            val intent = Intent(this@MainActivity, StoryDetailActivity::class.java)
+            intent.putExtra("key", 1)
+            startActivity(intent)
+        }
+        icon3.setOnClickListener {
+            card3.setStrokeColor(Color.rgb(0,0,0))
+            val intent = Intent(this@MainActivity, StoryDetailActivity::class.java)
+            intent.putExtra("key", 2)
+            startActivity(intent)
+        }
+        icon4.setOnClickListener {
+            card4.setStrokeColor(Color.rgb(0,0,0))
+            val intent = Intent(this@MainActivity, StoryDetailActivity::class.java)
+            intent.putExtra("key", 3)
+            startActivity(intent)
         }
         MyImg.setOnClickListener {
             val intent = Intent(this, DetailActivity::class.java)
             intent.putExtra("id", currentLoginUser._id)
             startActivity(intent)
+            overridePendingTransition(R.anim.login_to_main,R.anim.login_to_main_none)
         }
     }
     private fun initDataSetting(){
+        Log.d("초기데이터설정", "초기 데이터 설정 완료")
         //더미 데이터 테스트용입니다. 테스트 출력 용도
         for (i in 0..11){
             dummyText.add("${i+1}번째 테스트용 TIL 입니다")
         }
+
         for(i in 0.. 11){
             if(i in 0..2){
                 UserdataPull[0].addPost(Post(UserdataPull[0], dummyText[i]))
@@ -168,6 +201,7 @@ class MainActivity : AppCompatActivity() {
     }
     //더미데이터 중 댓글 생성하기
     private fun makeComment(){
+        Log.d("초기설정", "댓글 더미 설정 완료")
         for(i in 0.. UserdataPull[0].postList.size-1){
             UserdataPull[0].postList[i].addComment(Comment(UserdataPull[3], "잘 보고 갑니다~"))
         }
@@ -184,6 +218,7 @@ class MainActivity : AppCompatActivity() {
 
     //로그인 하면서 받아온 id를 통해 현재 로그인된 아이디 저장해두는 메소드
     private fun currentUser() {
+        Log.d("초기설정", "현재 로그인 유저 등록 완료")
         val id = intent.getStringExtra("id")
         var member = Member("id", "password", "name", 0, "email")
         for(i in 0..UserdataPull.size-1){

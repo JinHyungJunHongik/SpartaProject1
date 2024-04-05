@@ -14,7 +14,7 @@
         app:strokeWidth="1dp"
         app:strokeColor="#000000"
         app:cardCornerRadius="45dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 <ImageView
@@ -24,24 +24,16 @@
     android:layout_gravity="center"
     android:src="@drawable/img_01" />
     </com.google.android.material.card.MaterialCardView>
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/ns_mainHead"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card_main_loginImg">
 
         <LinearLayout
+            android:layout_marginTop="8dp"
             android:id="@+id/linear_mainHead"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/card_main_loginImg">
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_main_member1"
@@ -126,12 +118,12 @@
                     android:src="@drawable/man_icon1" />
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:ignore="MissingConstraints"
-        app:layout_constraintTop_toBottomOf="@+id/ns_mainHead">
+        app:layout_constraintTop_toBottomOf="@+id/linear_mainHead">
     <LinearLayout
         android:id="@+id/linear_mainPost"
         android:layout_width="match_parent"
