@@ -49,6 +49,8 @@ class DetailActivity : AppCompatActivity() {
 
         val btn_back = findViewById<ImageButton>(R.id.btn_detail_back)
         btn_back.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
             finish()
         }
     }
@@ -77,7 +79,7 @@ class DetailActivity : AppCompatActivity() {
             post.text = "게시글 없음"
         }
         else
-            post.text = data.postList[2]._txt
+            post.text = data.postList[0]._txt
 
         if(data._name == "태준") {
             mbti.text = getText(R.string.mbti1)
