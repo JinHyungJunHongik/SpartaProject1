@@ -1,5 +1,6 @@
 package com.example.spartateamproject
 
+import android.app.ActivityOptions
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -64,8 +65,9 @@ class DetailActivity : AppCompatActivity() {
         setting = findViewById(R.id.btn_detail_setting)
         setting.setOnClickListener {
             val intent = Intent(this, SettingActivity::class.java)
+            val options: ActivityOptions = ActivityOptions.makeSceneTransitionAnimation(this, setting, "trans_all")
             intent.putExtra("id", currentLoginUser._id)
-            startActivity(intent)
+            startActivity(intent, options.toBundle())
         }
         id.text = data._id
         name.text = data._name

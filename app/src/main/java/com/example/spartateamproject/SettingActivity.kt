@@ -2,6 +2,7 @@ package com.example.spartateamproject
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.ActivityOptions
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,6 +12,7 @@ import android.widget.Switch
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.app.ActivityOptionsCompat
 
 
 class SettingActivity : AppCompatActivity() {
@@ -111,9 +113,10 @@ class SettingActivity : AppCompatActivity() {
 
             editProfile.setOnClickListener {
                 val intent = Intent(this, EditProfileActivity::class.java)
+                val options: ActivityOptionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(this, editProfile, "trans_all")
                 intent.putExtra("mpId",mpId.text.toString())
                 intent.putExtra("mpImage",mpImage.toString())
-                resultLanuncher.launch(intent)
+                resultLanuncher.launch(intent, options)
 
             }
         }
