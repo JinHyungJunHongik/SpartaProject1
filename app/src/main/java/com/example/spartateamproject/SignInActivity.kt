@@ -1,6 +1,7 @@
 package com.example.spartateamproject
 
 import android.app.Activity
+import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +12,7 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.app.ActivityOptionsCompat
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.whenStarted
@@ -116,6 +118,7 @@ class SignInActivity : AppCompatActivity() {
                             isMatched = 2
                             Toast.makeText(this, getString(R.string.login_ok), Toast.LENGTH_SHORT).show()
                             val loginIntent = Intent(this@SignInActivity, MainActivity::class.java)
+                            val options: ActivityOptions = ActivityOptions.makeSceneTransitionAnimation(this, login, "trans_all")
                             //id 넘기기
                             loginIntent.putExtra("id", idText)
                             startActivity(loginIntent)
@@ -135,7 +138,8 @@ class SignInActivity : AppCompatActivity() {
     private fun goToSignUp() {
         signup.setOnClickListener {
             val intent = Intent(this@SignInActivity, SignUpActivity::class.java)
-            prevInfo.launch(intent)
+            val options: ActivityOptionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(this, signup, "trans_all")
+            prevInfo.launch(intent, options)
         }
     }
 
