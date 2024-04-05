@@ -3,6 +3,7 @@ package com.example.spartateamproject
 import android.app.Activity
 import android.app.ActivityOptions
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -12,6 +13,7 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityOptionsCompat
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.whenStarted
 import kotlinx.coroutines.delay
@@ -91,6 +93,7 @@ class SignInActivity : AppCompatActivity() {
         login.isEnabled = checkId && checkPwd
     }
 
+    @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
     private fun goToMain() {
         login.setOnClickListener {
 
@@ -118,7 +121,8 @@ class SignInActivity : AppCompatActivity() {
                             val options: ActivityOptions = ActivityOptions.makeSceneTransitionAnimation(this, login, "trans_all")
                             //id 넘기기
                             loginIntent.putExtra("id", idText)
-                            startActivity(loginIntent, options.toBundle())
+                            startActivity(loginIntent)
+                            finish()
                         } else {
                         }
                     } else {

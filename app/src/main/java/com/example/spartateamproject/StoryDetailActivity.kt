@@ -56,14 +56,13 @@ class StoryDetailActivity : AppCompatActivity() {
             whenStarted {
                 while(time <= 5){
                     if(iconClick == true){
+                        iconClick = false
                         break
                     }
                     time++
                     delay(1000)
                     if(time == 5){
-                        val intent = Intent(this@StoryDetailActivity, MainActivity::class.java)
-                        startActivity(intent)
-                        finish()
+                       finish()
                     }
                 }
             }
